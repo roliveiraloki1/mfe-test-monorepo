@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const { merge } = require('webpack-merge');
 
@@ -19,13 +18,7 @@ const devConfig = {
       remotes: {
         marketing: 'marketing@http://localhost:8081/remoteEntry.js',
       },
-      exposes: {
-        './Marketing': './src/bootstrap',
-      },
       shared: dependencies,
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
     }),
   ],
 };
